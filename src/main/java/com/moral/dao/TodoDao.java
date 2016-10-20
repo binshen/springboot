@@ -17,7 +17,5 @@ public interface TodoDao {
 
     public int deleteTodo(Todo todo);
 
-    public int updateTitle(Todo todo);
-
-    public int updateStatus(Todo todo);
+    public int updateTodo(Todo todo);
 }

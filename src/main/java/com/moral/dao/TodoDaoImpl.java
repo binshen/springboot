@@ -24,26 +24,24 @@ public class TodoDaoImpl implements TodoDao {
 
     @Override
     public Todo selectTodo(int id) {
-        return null;
+        return entityManager.find(Todo.class, id);
     }
 
     @Override
     public int insertTodo(Todo todo) {
-        return 0;
+        entityManager.persist(todo);
+        return 1;
     }
 
     @Override
     public int deleteTodo(Todo todo) {
-        return 0;
+        entityManager.remove(todo);
+        return 1;
     }
 
     @Override
-    public int updateTitle(Todo todo) {
-        return 0;
-    }
-
-    @Override
-    public int updateStatus(Todo todo) {
-        return 0;
+    public int updateTodo(Todo todo) {
+        entityManager.merge(todo);
+        return 1;
     }
 }

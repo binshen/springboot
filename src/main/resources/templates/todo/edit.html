@@ -1,1 +1,16 @@
-2222222
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<body>
+<div layout:fragment="content" class="container">
+    <div class="box post">
+        <h2>修改</h2>
+        <form th:action="'/todo/' + ${todo.id} + '/save'" method="post">
+            <p><input type="text" name="title" class="long_txt" th:value="${todo.title}" /></p>
+            <p><input type="submit" class="submit" value="提交" /></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
