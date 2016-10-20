@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout">
+<body>
+<div layout:fragment="content" class="container">
+    <div class="box todos">
+        <h2 class="box">待办事项</h2>
+        <ul>
+            <ul th:each="todo : ${todoList}">
+                <li>
+                    <del th:text="${todo.title}"></del>&nbsp;
+                    <a href="/todo/[[${todo.id}]]/finish/0">恢复</a>,
+                    <a href="/todo/[[${todo.id}]]/edit">修改</a>,
+                    <a href="/todo/[[${todo.id}]]/delete" onclick="return confirm('删除以后不能恢复的，确定？')">删除</a>
+                </li>
+            </ul>
+        </ul>
+    </div>
+
+    <div class="box post">
+        <h2>新增</h2>
+        <form action="/todo/new" method="post" id="post_new">
+            <p><input type="text" name="title" class="long_txt" /></p>
+            <p><input type="submit" class="submit" value="添加" /></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
